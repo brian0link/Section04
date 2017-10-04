@@ -1,6 +1,4 @@
 *.VC.db
-BattleTank.VC.VC.opendb
-.vs/
 
 # Compiled Object files
 *.slo
@@ -61,6 +59,5 @@ Intermediate/*
 # Cache files for the editor to use
 DerivedDataCache/*
 
-
-# uasset can get big
-*.uasset
+# Starter Content
+Content/StarterContent
