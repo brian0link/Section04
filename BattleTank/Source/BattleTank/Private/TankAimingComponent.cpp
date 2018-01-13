@@ -44,10 +44,10 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 		StartLocation,
 		HitLocation,
 		LaunchSpeed,
-		//			false,		// Not needed due to default value
-		//			0,			// Not needed due to default value
-		//			0,			// Not needed due to default value
-		ESuggestProjVelocityTraceOption::DoNotTrace
+		false,		// Not needed due to default value
+		0,			// Not needed due to default value
+		0,			// Not needed due to default value
+		ESuggestProjVelocityTraceOption::DoNotTrace	// Shouldn't be needed
 	);
 	if (bHaveAimSolution)
 	{
@@ -74,5 +74,5 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	auto DeltaRotator = AimAsRotator - BarrelRotator;
 	// UE_LOG(LogTemp, Warning, TEXT("DeltaRotator: %s"), *DeltaRotator.ToString());
 
-	Barrel->Elevate(5);	// TODO remove magic number
+	Barrel->Elevate(DeltaRotator.Pitch);
 }
