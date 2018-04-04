@@ -34,6 +34,8 @@ private:
 	// Sets default values for this pawn's properties
 	ATank();
 
+	virtual void BeginPlay() override;
+
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")	//Change from EditAnywhere
 	//UClass*
 	TSubclassOf<AProjectile> ProjectileBlueprint;	//Alternative http://docs.unrealengine.com/latest/INT/Programming/UnrealArchitecture/TSubclassOf/
