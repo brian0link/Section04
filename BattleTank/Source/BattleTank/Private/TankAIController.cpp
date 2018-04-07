@@ -1,8 +1,9 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright Brian Walsh (c) 2018
 
 #include "BattleTank.h"
 #include "Tank.h"
 #include "TankAIController.h"
+// Depends on movement component via pathfinding system
 
 void ATankAIController::BeginPlay()
 {
