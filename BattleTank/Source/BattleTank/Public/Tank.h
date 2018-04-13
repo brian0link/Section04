@@ -7,7 +7,6 @@
 
 // Forward declarations
 class UTankBarrel;
-class UTankAimingComponent;
 class AProjectile;
 
 UCLASS()
@@ -19,11 +18,6 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Firing")
 	void Fire();
 
-	void AimAt(FVector HitLocation);
-
-protected:
-	UPROPERTY(BlueprintReadOnly)
-	UTankAimingComponent* TankAimingComponent = nullptr;
 
 private:	
 	// Sets default values for this pawn's properties
@@ -34,16 +28,15 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")	//Change from EditAnywhere
 	//UClass*
 	TSubclassOf<AProjectile> ProjectileBlueprint;	//Alternative http://docs.unrealengine.com/latest/INT/Programming/UnrealArchitecture/TSubclassOf/
-
-	// TODO remove once firing is moved to aiming component
-	UPROPERTY(EditDefaultsOnly, Category = "Firing")
-	float LaunchSpeed = 40000; 
 	
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float ReloadTimeInSeconds = 3;
 
 	// Local barrel reference to spawn projectile
 	UTankBarrel* Barrel = nullptr;	// TODO remove
+
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
+	float LaunchSpeed = 40000;
 
 	double LastFireTime = 0;
 };
