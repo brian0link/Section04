@@ -28,3 +28,5 @@ void ATankAIController::Tick(float DeltaTime)
 
 	AimingComponent->Fire();	// TODO limit firing rate
 }
+
+//Test comment. Canary past 186.5
