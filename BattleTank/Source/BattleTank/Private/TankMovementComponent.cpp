@@ -17,7 +17,6 @@ void UTankMovementComponent::IntendMoveForward(float Throw)
 
 	LeftTrack->SetThrottle(Throw);
 	RightTrack->SetThrottle(Throw);
-	// TOxDO prevent double-speed due to dual control use
 }
 
 void UTankMovementComponent::IntendTurnRight(float Throw)
@@ -26,12 +25,11 @@ void UTankMovementComponent::IntendTurnRight(float Throw)
 
 	LeftTrack->SetThrottle(Throw);
 	RightTrack->SetThrottle(-Throw);
-	// TOxDO prevent double-speed due to dual control use
 }
 
 void UTankMovementComponent::RequestDirectMove(const FVector& MoveVelocity, bool bForceMaxSpeed)
 {
-	//No need to call SUper as we're replacing the functionality
+	// No need to call Super as we're replacing the functionality
 	// The following two variables are magnitudes for the vector dot product for movement
 	auto TankForward = GetOwner()->GetActorForwardVector().GetSafeNormal();
 	auto AIForwardIntention = MoveVelocity.GetSafeNormal();
@@ -44,6 +42,6 @@ void UTankMovementComponent::RequestDirectMove(const FVector& MoveVelocity, bool
 
 	auto TankName = GetOwner()->GetName();
 	auto MoveVelocityString = AIForwardIntention.ToString();
-	//auto Time = GetWorld()->GetTimeSeconds();
-	//UE_LOG(LogTemp, Warning, TEXT("Right: %f, Forward: %f"), RightThrow, ForwardThrow);
+
+	//UE_LOG(LogTemp, Warning, TEXT("AI Movement Happening: %s"), *MoveVelocityString)
 }
